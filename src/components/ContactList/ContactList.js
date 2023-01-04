@@ -1,8 +1,7 @@
-import css from './Contacts.module.css';
-import { nanoid } from 'nanoid';
+import css from './ContactList.module.css';
 import PropTypes from 'prop-types';
 
-const Contacts = ({ data, handleDelete }) => {
+const ContactList = ({ data, handleDelete }) => {
   return (
     <div className={css.contacts}>
       <ul className={css.list}>
@@ -11,8 +10,8 @@ const Contacts = ({ data, handleDelete }) => {
             <li
               onClick={handleDelete}
               className={css.li}
-              id={nanoid()}
-              key={nanoid()}
+              id={contact.id}
+              key={contact.id}
             >
               <div>
                 <span className={css.name}>{contact.name}</span>
@@ -30,7 +29,7 @@ const Contacts = ({ data, handleDelete }) => {
   );
 };
 
-Contacts.propTypes = {
+ContactList.propTypes = {
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -40,4 +39,4 @@ Contacts.propTypes = {
   ),
 };
 
-export default Contacts;
+export default ContactList;

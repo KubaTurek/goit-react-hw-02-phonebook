@@ -1,7 +1,7 @@
 import css from './Filter.module.css';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
-const Filter = ({filterOnChange}) => {
+const Filter = ({ filterOnChange }) => {
   return (
     <div className={css.filter}>
       <label>
@@ -18,7 +18,7 @@ const Filter = ({filterOnChange}) => {
 };
 
 Filter.propTypes = {
-    filterOnChange: PropTypes.func
-}
+  filterOnChange: PropTypes.func,
+};
 
 export default Filter;

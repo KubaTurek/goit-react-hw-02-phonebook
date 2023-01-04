@@ -1,7 +1,7 @@
-import css from './Form.module.css';
-import PropTypes from 'prop-types'
+import css from './ContactForm.module.css';
+import PropTypes from 'prop-types';
 
-const Formular = ({ handleSubmit }) => {
+const ContactForm = ({ handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit} className={css.form}>
       <label>
@@ -37,9 +37,8 @@ const Formular = ({ handleSubmit }) => {
   );
 };
 
-Formular.propTypes = {
+ContactForm.propTypes = {
+  handleSubmit: PropTypes.func,
+};
 
-  handleSubmit: PropTypes.func
-}
-
-export default Formular;
+export default ContactForm;
