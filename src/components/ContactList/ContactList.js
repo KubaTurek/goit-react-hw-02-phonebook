@@ -7,18 +7,17 @@ const ContactList = ({ data, handleDelete }) => {
       <ul className={css.list}>
         {data.map(contact => {
           return (
-            <li
-              onClick={handleDelete}
-              className={css.li}
-              id={contact.id}
-              key={contact.id}
-            >
+            <li className={css.li} id={contact.id} key={contact.id}>
               <div>
                 <span className={css.name}>{contact.name}</span>
                 <span className={css.number}>{contact.number}</span>
               </div>
 
-              <button type="button" className={css.delete}>
+              <button
+                type="button"
+                className={css.delete}
+                onClick={() => handleDelete(contact.id)}
+              >
                 Delete
               </button>
             </li>
@@ -30,6 +29,7 @@ const ContactList = ({ data, handleDelete }) => {
 };
 
 ContactList.propTypes = {
+  handleDelete: PropTypes.func,
   data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

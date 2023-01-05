@@ -46,25 +46,10 @@ class App extends Component {
     }
   };
 
-  handleDelete = event => {
-    if (event.target.type === 'button') {
-      const container = event.currentTarget.firstElementChild;
-
-      const selectedContact = container.firstElementChild.textContent;
-
-      const newContacts = [...this.state.contacts];
-      newContacts.map(contact => {
-        if (contact.name === selectedContact) {
-          const index = newContacts.indexOf(contact);
-          newContacts.splice(index, 1);
-        }
-        return newContacts;
-      });
-
-      this.setState({
-        contacts: [...newContacts],
-      });
-    }
+  handleDelete = id => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
+    }));
   };
 
   filterOnChange = event => {
